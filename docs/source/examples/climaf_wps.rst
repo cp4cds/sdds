@@ -37,16 +37,59 @@ Cookiecutter will ask you a few questions, here the answers for the CliMAF WPS::
   Choose from 1, 2, 3, 4, 5 [1]: 1
   http_port [5000]: 5000
 
-A project folder `climaf_wps_demo` is created with a fully functional WPS and example processes.
+A project folder ``climaf_wps_demo`` is created with a fully functional WPS and example processes.
 
 Push this project now to `GitHub <https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/>`_.
 
 You can find the result in our `CP4CDS <https://github.com/cp4cds/climaf-wps-demo>`_ GitHub project.
 
 
+Add a CliMAF process
+--------------------
+
+We will add now a *time series plot* process based on CliMAF_ functionality to the WPS.
+
+First, we need to add the ``climaf`` dependency to the existing Conda_ environment:
+
+  https://github.com/cp4cds/climaf-wps-demo/blob/master/environment.yml
+
+Then we add a new Python module for a *time series plot* generation:
+
+  https://github.com/cp4cds/climaf-wps-demo/blob/master/climafwps/tsplot.py
+
+We need to define a WPS process definition for the *time series plot* where we
+describe the input and output parameters and provide a short documentation:
+
+  https://github.com/cp4cds/climaf-wps-demo/blob/master/climafwps/processes/wps_tsplot.py
+
+You need to activate this process in the ``__init__`` module:
+
+  https://github.com/cp4cds/climaf-wps-demo/blob/master/climafwps/processes/__init__.py
+
+You should extend the tests for the new ``tsplot`` process:
+
+  https://github.com/cp4cds/climaf-wps-demo/blob/master/tests/test_wps_caps.py
+
+An initial Sphinx documentation is part of the WPS ( ``docs/`` ) and can be made
+available on ReadTheDocs_.
+
+Test CliMAF WPS
+---------------
+
+You can install and start the WPS using a ``Makefile``::
+
+  $ make clean install
+  $ make start
+
+The service will be available at the URL:
+
+  http://localhost:5000/wps
+
+Check the documentation on ReadTheDocs_ for details.
 
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`bird-house/cookiecutter-birdhouse`: https://github.com/bird-house/cookiecutter-birdhouse
 .. _CliMAF: http://climaf.readthedocs.io/en/latest
 .. _Conda: https://conda.io/docs/index.html
+.. _ReadTheDocs: https://climaf-wps-demo.readthedocs.io/
