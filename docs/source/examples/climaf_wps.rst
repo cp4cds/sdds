@@ -87,9 +87,43 @@ The service will be available at the URL:
 
 Check the documentation on ReadTheDocs_ for details.
 
+Use Ansible for Deployment
+--------------------------
+
+We can deploy CliMAF WPS on a host using Ansible_.
+
+First, you need to clone the Ansible playbook for WPS::
+
+  $ git clone https://github.com/bird-house/ansible-wps-playbook.git
+  $ cd ansible-wps-playbook
+
+If Ansible is not installed you can bootstrap the installation::
+
+  $ bash bootstrap.sh
+
+To install CliMAF WPS you need to edit the ``custom.yml`` configration with
+the approriate options, for example::
+
+  ---
+  # Configuration for CliMAF WPS
+  wps_name: climafwps
+  wps_repo: https://github.com/cp4cds/climaf-wps-demo.git
+  wps_version: master
+  wps_hostname: wps.demo
+  wps_port: 80
+
+Run Ansible with this configration using a ``Makefile``::
+
+  $ make play
+
+Check the documentation on ReadTheDocs_ for details.
+
+There is a `online demo <https://bovec.dkrz.de/processes/list?wps=climaf>`_ availble with a deployed CliMAF WPS.
+
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`bird-house/cookiecutter-birdhouse`: https://github.com/bird-house/cookiecutter-birdhouse
 .. _CliMAF: http://climaf.readthedocs.io/en/latest
 .. _Conda: https://conda.io/docs/index.html
 .. _ReadTheDocs: https://climaf-wps-demo.readthedocs.io/
+.. _Ansible: http://ansible-wps-playbook.readthedocs.io/en/latest/index.html
