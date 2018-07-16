@@ -76,10 +76,14 @@ available on ReadTheDocs_.
 Test CliMAF WPS
 ---------------
 
-You can install and start the WPS using a ``Makefile``::
+You can install the WPS using a ``Makefile``::
 
   $ make clean install
-  $ make start
+
+Start the WPS with customized configuration for CMIP5 data archive::
+
+  $ source activate climafwps
+  $ climafwps start -c etc/ceda.cfg -d
 
 The service will be available at the URL:
 
@@ -102,7 +106,7 @@ If Ansible is not installed you can bootstrap the installation::
   $ bash bootstrap.sh
 
 To install CliMAF WPS you need to edit the ``custom.yml`` configration with
-the approriate options, for example::
+the approriate options (hostname, port, CMIP5 archive), for example::
 
   ---
   # Configuration for CliMAF WPS
@@ -111,6 +115,8 @@ the approriate options, for example::
   wps_version: master
   wps_hostname: wps.demo
   wps_port: 80
+  wps_archive_root: /badc/cmip5/data
+  wps_config_template: "{{ wps_location }}/{{ wps_name }}/templates/pywps.cfg"
 
 Run Ansible with this configration using a ``Makefile``::
 
