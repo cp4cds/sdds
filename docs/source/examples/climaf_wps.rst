@@ -124,7 +124,18 @@ Run Ansible with this configration using a ``Makefile``::
 
 Check the documentation on ReadTheDocs_ for details.
 
+CliMAF Demo
+-----------
+
 There is a `online demo <https://bovec.dkrz.de/processes/list?wps=climaf>`_ availble with a deployed CliMAF WPS.
+
+.. image:: _static/bovec-climaf.png
+
+You can also try a JupyterLab notebook_ with a CliMAF example:
+
+.. image:: _static/jupyterlab-wpsdemo.png
+
+This notebook is using the birdy_ client to interact with the CliMAF WPS service.
 
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -133,3 +144,5 @@ There is a `online demo <https://bovec.dkrz.de/processes/list?wps=climaf>`_ avai
 .. _Conda: https://conda.io/docs/index.html
 .. _ReadTheDocs: https://climaf-wps-demo.readthedocs.io/
 .. _Ansible: http://ansible-wps-playbook.readthedocs.io/en/latest/index.html
+.. _notebook: https://github.com/cehbrecht/jupyterlab-notebooks/blob/master/copernicus-demo-july-2018/notebooks/wpsdemo.ipynb
+.. _birdy: http://birdy.readthedocs.io/en/latest/
