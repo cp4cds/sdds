@@ -129,11 +129,11 @@ CliMAF Demo
 
 There is a `online demo <https://bovec.dkrz.de/processes/list?wps=climaf>`_ availble with a deployed CliMAF WPS.
 
-.. image:: _static/bovec-climaf.png
+.. image:: ../_static/bovec-climaf.png
 
 You can also try a JupyterLab notebook_ with a CliMAF example:
 
-.. image:: _static/jupyterlab-wpsdemo.png
+.. image:: ../_static/jupyterlab-wpsdemo.png
 
 This notebook is using the birdy_ client to interact with the CliMAF WPS service.
 
